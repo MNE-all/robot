@@ -8,31 +8,31 @@ namespace robot
             int step = 0;
             int left = Console.CursorLeft + 20, top = Console.CursorTop + 10;
             Robot robot = new Robot();
-            char[] dir = { 'N', 'N', 'N', 'E', 'E', 'S', 'S', 'E', 'S', 'W', 'W' };
+            char[] dir = { 'N', 'N', 'N', 'E', 'E', 'S', 'S', 'E', 'S', 'W', 'W', 'W'};
             Console.SetCursorPosition(left, top);
             Console.Write(step);
-            while (!robot.WhereBot(step) && step < dir.Length)
+            foreach(char c in dir)
             {
                 robot.Swipe(dir[step]);
                 switch (dir[step++])
                 {
                     case 'N':
                         Console.SetCursorPosition(left, --top);
-                        Console.Write($"{step}");
+                        Console.Write(step);
                         break;
                     case 'S':
                         Console.SetCursorPosition(left, ++top);
-                        Console.Write($"{step}");
+                        Console.Write(step);
                         break;
                     case 'W':
                         left -= 4;
                         Console.SetCursorPosition(left, top);
-                        Console.Write($"{step}\t");
+                        Console.Write(step);
                         break;
                     case 'E':
                         left += 4;
                         Console.SetCursorPosition(left, top);
-                        Console.Write($"{step}\t");
+                        Console.Write(step);
                         break;
 
                 }
